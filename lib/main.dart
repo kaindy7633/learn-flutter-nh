@@ -6,6 +6,7 @@ import './demo/basic_demo.dart';
 import './demo/layout_demo.dart';
 import './demo/view_demo.dart';
 import './demo/sliver_demo.dart';
+import './demo/navigator_demo.dart';
 
 void main() => runApp(const App());
 
@@ -16,7 +17,12 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false, // 不显示右上角的DEBUG图标
-      home: const Home(),
+      // home: const NavigatorDemo(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const Home(),
+        '/about': (context) => const PageDemo(title: 'Abount')
+      },
       theme: ThemeData(
           primarySwatch: Colors.yellow, // 主题颜色
           splashColor: Colors.white70, // 水波纹效果颜色
